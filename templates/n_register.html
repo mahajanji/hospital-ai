@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Pro - Register</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 180px);
+            padding: 40px 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .form-content {
+            padding: 40px;
+        }
+        .form-content h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .text-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .text-link:hover {
+            text-decoration: underline;
+        }
+        /* Right Side Lottie Container */
+        .form-image-right {
+            background: #28a745;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        #lottie-animation {
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            max-height: 500px;
+        }
+        
+        
+        .form-image-right {
+    background: linear-gradient(135deg, #28a745, #20c997, #17a2b8);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Include -->
+    <header class="shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3 text-primary" href="index.html">
+                    <img src="https://via.placeholder.com/40x40/007bff/ffffff?text=H" alt="Hospital Logo" class="me-2 rounded-circle">
+                    HealthCare Pro
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-dark" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-dark" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-dark" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-dark" href="doctors.html">Doctors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-dark" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-lg-3">
+                        <a href="login.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="register.html" class="btn btn-primary active">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="form-section">
+        <div class="container">
+            <div class="row g-0 form-container">
+                <!-- Left Side Form -->
+                <div class="col-lg-6 col-md-12 form-content">
+                    <h2 class="text-center">Create Account</h2>
+                    <p class="text-center text-muted mb-4">Join HealthCare Pro today for better health management.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="********" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="********" required>
+                        </div>
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                        <p class="text-center text-muted">Already have an account? <a href="login.html" class="text-link">Login here</a></p>
+                    </form>
+                </div>
+
+                <!-- Right Side Lottie Animation -->
+               <div class="col-lg-6 d-none d-lg-flex form-image-right">
+    <div class="glass-box">
+        <h3>Welcome to HealthCare Pro</h3>
+        <p>Track your health in a modern way</p>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Include -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-primary">HealthCare Pro</h5>
+                    <p>Providing the best medical care with compassion and excellence. Your health is our mission.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Quick Links</h5>
+                    <p><a href="about.html" class="text-white" style="text-decoration: none;">About Us</a></p>
+                    <p><a href="services.html" class="text-white" style="text-decoration: none;">Our Services</a></p>
+                    <p><a href="doctors.html" class="text-white" style="text-decoration: none;">Our Doctors</a></p>
+                    <p><a href="contact.html" class="text-white" style="text-decoration: none;">Contact Us</a></p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Useful Links</h5>
+                    <p><a href="login.html" class="text-white" style="text-decoration: none;">Login</a></p>
+                    <p><a href="register.html" class="text-white" style="text-decoration: none;">Register</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Privacy Policy</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Terms & Conditions</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
+                    <p><i class="fas fa-home me-3"></i> 123 Health St, Medical City, HC 12345</p>
+                    <p><i class="fas fa-envelope me-3"></i> info@healthcarepro.com</p>
+                    <p><i class="fas fa-phone me-3"></i> +01 234 567 88</p>
+                    <p><i class="fas fa-print me-3"></i> +01 234 567 89</p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p>Copyright &copy;2023 All rights reserved by: <a href="#" style="text-decoration: none;"><strong class="text-primary">HealthCare Pro</strong></a></p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-end">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lottie Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets8.lottiefiles.com/packages/lf20_puciaact.json' // Example medical animation
+        });
+    </script>
+</body>
+</html>
+

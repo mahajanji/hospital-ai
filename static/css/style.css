@@ -1,0 +1,88 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Light background for the whole page */
+}
+
+/* Header Navbar Styles */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.8rem; /* Larger brand name */
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important; /* Highlight on hover */
+}
+
+.nav-link.active {
+    color: #007bff !important;
+    border-bottom: 2px solid #007bff; /* Underline active link */
+    padding-bottom: 5px;
+}
+
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #212529 !important; /* Darker background */
+    color: #f8f9fa;
+}
+
+footer .text-primary {
+    color: #007bff !important; /* Bootstrap primary color for emphasis */
+}
+
+footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #007bff;
+}
+
+footer .list-inline-item .fab {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+footer .list-inline-item .fab:hover {
+    color: #007bff;
+}
+
+/* Ensure Font Awesome is loaded for icons */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
