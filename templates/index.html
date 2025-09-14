@@ -1,154 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Name - Page Title</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apollo Hospitals - Inspired</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Fonts (Apollo style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .navbar-brand img {
+      height: 40px;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: #0056b3 !important;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #007bff !important;
+    }
+    .btn-primary-custom {
+      background-color: #0056b3;
+      border-color: #0056b3;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary-custom:hover {
+      background-color: #004085;
+      border-color: #004085;
+      color: #fff;
+    }
+    .btn-outline-primary-custom {
+      color: #0056b3;
+      border-color: #0056b3;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-primary-custom:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 600px; /* Adjust height as needed */
+      background: url('https://via.placeholder.com/1920x600/007bff/ffffff?text=Hospital+Background') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 91, 127, 0.65); /* Darker overlay for text readability */
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .hero-search-bar {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .hero-search-bar input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      padding: 10px 15px;
+      font-size: 1.1rem;
+      outline: none;
+      color: #333;
+    }
+    .hero-search-bar button {
+      background-color: #F58220; /* Apollo's orange */
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .hero-search-bar button:hover {
+      background-color: #d16b11;
+    }
+
+    .hero-quick-links {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-quick-links .btn {
+      background-color: #fff;
+      color: #0056b3;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 12px 25px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .hero-quick-links .btn:hover {
+      background-color: #0056b3;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .hero-quick-links .btn i {
+      margin-right: 8px;
+    }
+
+
+    /* Sections Styling */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0056b3;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -15px;
+      width: 80px;
+      height: 4px;
+      background-color: #F58220;
+      border-radius: 5px;
+    }
+
+    /* Specialties Section */
+    .specialty-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%; /* Ensure cards are same height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .specialty-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .specialty-card .icon {
+      font-size: 3.5rem;
+      color: #0056b3;
+      margin-bottom: 20px;
+    }
+    .specialty-card h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0056b3;
+      margin-bottom: 15px;
+    }
+    .specialty-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+    .specialty-card a {
+      color: #F58220;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 15px;
+      display: inline-block;
+    }
+    .specialty-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-us {
+      background-color: #eef7fc;
+      padding: 80px 0;
+    }
+    .why-choose-us .feature-icon {
+      font-size: 3rem;
+      color: #0056b3;
+      margin-bottom: 20px;
+    }
+    .why-choose-us h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+    .why-choose-us p {
+      color: #555;
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+      background: linear-gradient(to right, #0056b3, #007bff);
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-section .btn {
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .cta-section .btn-light {
+      color: #0056b3;
+      background-color: #fff;
+      border-color: #fff;
+    }
+    .cta-section .btn-light:hover {
+      background-color: #e0e0e0;
+      border-color: #e0e0e0;
+      transform: translateY(-3px);
+    }
+
+
+    /* Footer */
+    footer {
+      background-color: #004085; /* Darker blue for footer */
+      color: #f8f9fa;
+      padding: 60px 0 30px;
+    }
+    footer h5 {
+      color: #fff;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+    footer p, footer a {
+      color: #cceeff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 2;
+    }
+    footer a:hover {
+      color: #F58220; /* Apollo orange for hover */
+      text-decoration: underline;
+    }
+    footer .social-icons a {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: #cceeff;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      color: #F58220;
+    }
+    footer hr {
+      border-color: rgba(255, 255, 255, 0.1);
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+    footer .mb-0 {
+      font-size: 0.9rem;
+      color: #a0c0e0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .navbar-nav {
+        margin-top: 15px;
+      }
+      .navbar-toggler {
+        border-color: rgba(255,255,255,0.5);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 500px;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-search-bar {
+        flex-direction: column;
+        border-radius: 30px;
+        padding: 15px;
+      }
+      .hero-search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .hero-search-bar button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      .hero-quick-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .specialty-card {
+        margin-bottom: 30px;
+      }
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+      .cta-section p {
+        font-size: 1rem;
+      }
+      footer .col-md-3 {
+        margin-bottom: 30px;
+      }
+      footer .text-md-end {
+        text-align: center !important;
+        margin-top: 20px;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
-    <!-- Include the content from header.html here -->
-    <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="index.html">
-                <img src="https://via.placeholder.com/40x40/007bff/ffffff?text=H" alt="Hospital Logo" class="me-2 rounded-circle">
-                HealthCare Pro
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 text-dark active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 text-dark" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 text-dark" href="services.html">Services</a> <!-- Added a services page -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 text-dark" href="doctors.html">Doctors</a> <!-- Added a doctors page -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 text-dark" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center ms-lg-3">
-                    <a href="login.html" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="register.html" class="btn btn-primary">Register</a>
-                </div>
-            </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg py-3 sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://via.placeholder.com/150x40/0056b3/ffffff?text=Hospital+Logo" alt="Hospital Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#specialties">Specialties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#why-choose-us">Why Choose Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <a href="#" class="btn btn-outline-primary-custom me-2 d-none d-lg-block">Login</a>
+          <a href="#" class="btn btn-primary-custom d-none d-lg-block">Book Appointment</a>
         </div>
-    </nav>
-</header>
-
-    <main class="container my-5">
-        <!-- YOUR PAGE-SPECIFIC CONTENT GOES HERE -->
-        <h1>This is the content for this particular page.</h1>
-        <p>You can add your forms, sections, and other elements here.</p>
-    </main>
-
-    <!-- Include the content from footer.html here -->
-    <footer class="bg-dark text-white pt-5 pb-4">
-    <div class="container text-center text-md-start">
-        <div class="row text-center text-md-start">
-
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">HealthCare Pro</h5>
-                <p>Providing the best medical care with compassion and excellence. Your health is our mission.</p>
-            </div>
-
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Quick Links</h5>
-                <p>
-                    <a href="about.html" class="text-white" style="text-decoration: none;">About Us</a>
-                </p>
-                <p>
-                    <a href="services.html" class="text-white" style="text-decoration: none;">Our Services</a>
-                </p>
-                <p>
-                    <a href="doctors.html" class="text-white" style="text-decoration: none;">Our Doctors</a>
-                </p>
-                <p>
-                    <a href="contact.html" class="text-white" style="text-decoration: none;">Contact Us</a>
-                </p>
-            </div>
-
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Useful Links</h5>
-                <p>
-                    <a href="login.html" class="text-white" style="text-decoration: none;">Login</a>
-                </p>
-                <p>
-                    <a href="register.html" class="text-white" style="text-decoration: none;">Register</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Privacy Policy</a>
-                </p>
-                <p>
-                    <a href="#" class="text-white" style="text-decoration: none;">Terms & Conditions</a>
-                </p>
-            </div>
-
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
-                <p>
-                    <i class="fas fa-home me-3"></i> 123 Health St, Medical City, HC 12345
-                </p>
-                <p>
-                    <i class="fas fa-envelope me-3"></i> info@healthcarepro.com
-                </p>
-                <p>
-                    <i class="fas fa-phone me-3"></i> +01 234 567 88
-                </p>
-                <p>
-                    <i class="fas fa-print me-3"></i> +01 234 567 89
-                </p>
-            </div>
-        </div>
-
-        <hr class="mb-4">
-
-        <div class="row align-items-center">
-            <div class="col-md-7 col-lg-8">
-                <p>Copyright &copy;2023 All rights reserved by:
-                    <a href="#" style="text-decoration: none;">
-                        <strong class="text-primary">HealthCare Pro</strong>
-                    </a>
-                </p>
-            </div>
-            <div class="col-md-5 col-lg-4">
-                <div class="text-center text-md-end">
-                    <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</footer>
+  </nav>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Your Health, Our Priority</h1>
+      <p>Discover world-class healthcare at our specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.</p>
+      <div class="hero-search-bar mx-auto mb-4">
+        <input type="text" placeholder="Search For Doctors & Specialties...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="hero-quick-links">
+        <a href="#" class="btn"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+        <a href="#" class="btn"><i class="fas fa-hospital"></i> Find Hospital</a>
+        <a href="#" class="btn"><i class="fas fa-heartbeat"></i> Book Health Check</a>
+        <a href="#" class="btn"><i class="fas fa-comments"></i> Get Expert Opinion</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialties Section -->
+  <section id="specialties" class="py-5 py-lg-5">
+    <div class="container">
+      <h2 class="section-title mb-5 pb-3">Our Centres of Clinical Excellence</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-heartbeat"></i></div>
+            <h3>Cardiac Sciences</h3>
+            <p>Leading the way in cardiac care with advanced diagnostics and treatment options for a healthier heart.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-ribbon"></i></div>
+            <h3>Oncology</h3>
+            <p>Comprehensive cancer care, offering the latest in treatment modalities, research, and compassionate support.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-brain"></i></div>
+            <h3>Neurosciences</h3>
+            <p>Expert care for neurological disorders, specializing in brain and spine surgeries, and rehabilitation.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-stomach"></i></div>
+            <h3>Gastroenterology</h3>
+            <p>Advanced diagnostic and therapeutic procedures for digestive system disorders and liver diseases.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-bone"></i></div>
+            <h3>Orthopaedics</h3>
+            <p>Specialized treatments for musculoskeletal conditions, including joint replacements and sports injuries.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="specialty-card">
+            <div class="icon"><i class="fas fa-lungs"></i></div>
+            <h3>Pulmonology</h3>
+            <p>Dedicated care for respiratory diseases, from common conditions to complex lung disorders.</p>
+            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why-choose-us" class="why-choose-us py-5 py-lg-5">
+    <div class="container">
+      <h2 class="section-title mb-5 pb-3 text-center">Why Choose Our Hospital?</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-award feature-icon"></i>
+          <h4>Award-Winning Care</h4>
+          <p>Recognized for excellence in patient care and clinical outcomes across various specialties.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-user-md feature-icon"></i>
+          <h4>Expert Medical Team</h4>
+          <p>Our highly skilled doctors, surgeons, and nurses are leaders in their respective fields.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-microscope feature-icon"></i>
+          <h4>Advanced Technology</h4>
+          <p>State-of-the-art facilities and cutting-edge technology for precise diagnostics and effective treatments.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-hands-helping feature-icon"></i>
+          <h4>Patient-Centric Approach</h4>
+          <p>We prioritize patient comfort and personalized care throughout their treatment journey.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-hospital-alt feature-icon"></i>
+          <h4>Holistic Wellness</h4>
+          <p>Beyond treatment, we focus on overall well-being, prevention, and long-term health.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fas fa-globe feature-icon"></i>
+          <h4>Global Standards</h4>
+          <p>Adhering to international protocols and best practices in healthcare delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section py-5">
+    <div class="container">
+      <h2>Ready to Experience World-Class Healthcare?</h2>
+      <p>Schedule an appointment or reach out to our team for any inquiries. We're here to help you on your path to wellness.</p>
+      <a href="#" class="btn btn-light btn-lg me-3">Book An Appointment</a>
+      <a href="#" class="btn btn-outline-light btn-lg">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-3">
+          <h5>Hospital Name</h5>
+          <p>Providing the best medical care with compassion and excellence since 1983.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Quick Links</h5>
+          <p><a href="#">About Us</a></p>
+          <p><a href="#services">Our Services</a></p>
+          <p><a href="#specialties">Specialties</a></p>
+          <p><a href="#why-choose-us">Why Choose Us</a></p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Patient Resources</h5>
+          <p><a href="#">Book Health Check</a></p>
+          <p><a href="#">Find a Doctor</a></p>
+          <p><a href="#">Privacy Policy</a></p>
+          <p><a href="#">Terms & Conditions</a></p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Healthcare Avenue, Metropolis, 10001</p>
+          <p><i class="fas fa-envelope me-2"></i> info@hospitalname.com</p>
+          <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
+          <p><i class="fas fa-clock me-2"></i> 24/7 Emergency Services</p>
+        </div>
+      </div>
+
+      <hr class="mt-4">
+
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2023 Hospital Name. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
