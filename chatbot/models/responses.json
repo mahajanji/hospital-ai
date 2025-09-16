@@ -1,0 +1,12 @@
+{
+  "greet": "Hello! I'm the hospital assistant. How can I help you today?",
+  "appointment": "You can book appointments online or call +1 (123) 456-7890 (9AM-5PM, Mon-Sat). Would you like help scheduling?",
+  "doctor": "We have specialists in Cardiology, Neurology, Orthopaedics, Oncology and more. Which specialty do you need?",
+  "timings": "Outpatient services: 9:00 AM - 5:00 PM (Mon-Sat). Emergency is 24/7.",
+  "location": "Our address: 123 Healthcare Avenue, Metropolis. Need directions?",
+  "emergency": "If this is an emergency, call +1 (123) 999-0000 immediately or go to the nearest emergency department.",
+  "surgery_instructions": "Pre-op: Do not eat/drink 8 hours before surgery. Bring ID and medication list. Post-op: follow surgeon's instructions and attend follow-ups. For specifics, tell me the surgery type.",
+  "billing": "For billing queries call +1 (123) 456-7891 or visit the billing desk. We accept insurance and card.",
+  "thanks": "You're welcome! Anything else I can help with?",
+  "fallback": "Sorry, I didn't understand. Could you rephrase or ask about appointment, doctors, timings, or emergency?"
+}
